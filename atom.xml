@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://liuyuhang.top/"/>
-  <updated>2019-07-24T06:05:49.166Z</updated>
+  <updated>2019-07-24T12:20:30.593Z</updated>
   <id>http://liuyuhang.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://liuyuhang.top/2019/07/24/java%E5%9F%BA%E7%A1%80/"/>
     <id>http://liuyuhang.top/2019/07/24/java基础/</id>
     <published>2019-07-24T05:27:56.000Z</published>
-    <updated>2019-07-24T06:05:49.166Z</updated>
+    <updated>2019-07-24T12:20:30.593Z</updated>
     
     <content type="html"><![CDATA[<h5 id="java的特性"><a href="#java的特性" class="headerlink" title="java的特性"></a>java的特性</h5><ul><li>java是一个在VM虚拟机上运行的程序，因此具有很强的<strong>可移植性</strong></li><li>java是强类型的语言，因此它是<strong>健壮的</strong></li><li>java经过多年的发展，已经成为web开发的主要利器<h5 id="java的基本数据类型"><a href="#java的基本数据类型" class="headerlink" title="java的基本数据类型"></a>java的基本数据类型</h5></li><li>byte   比特  1个字节</li><li>short  短整型  2个字节</li><li>int      整型  4个字节</li><li>long   长整型  8个字节</li><li>char  字符型  1个字节（根据编码规则）</li><li>float  单精度浮点型 4个字节</li><li>double 双精度浮点型 8个字节</li><li>boolean 布尔型 1个字节<h5 id="java的引用数据类型"><a href="#java的引用数据类型" class="headerlink" title="java的引用数据类型"></a>java的引用数据类型</h5></li><li>object 对象类型</li><li>[]    数组类型<h5 id="基本运算符"><a href="#基本运算符" class="headerlink" title="基本运算符"></a>基本运算符</h5></li><li>和C语言基本相同（加减乘除取余）<h5 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h5></li><li>与运算 或运算 非运算 （短路）<h5 id="三目运算符"><a href="#三目运算符" class="headerlink" title="三目运算符"></a>三目运算符</h5></li><li>表达式1 ? 表达式2 : 表达式3</li></ul>]]></content>
     
@@ -38,7 +38,9 @@
       <category term="javaSE" scheme="http://liuyuhang.top/categories/javaSE/"/>
     
     
-      <category term="java,javaSE" scheme="http://liuyuhang.top/tags/java-javaSE/"/>
+      <category term="java" scheme="http://liuyuhang.top/tags/java/"/>
+    
+      <category term="javaSE" scheme="http://liuyuhang.top/tags/javaSE/"/>
     
   </entry>
   
