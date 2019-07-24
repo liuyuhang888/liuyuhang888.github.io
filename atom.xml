@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://liuyuhang.top/"/>
-  <updated>2019-07-23T18:46:47.244Z</updated>
+  <updated>2019-07-24T05:48:02.703Z</updated>
   <id>http://liuyuhang.top/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java基础</title>
+    <link href="http://liuyuhang.top/2019/07/24/java%E5%9F%BA%E7%A1%80/"/>
+    <id>http://liuyuhang.top/2019/07/24/java基础/</id>
+    <published>2019-07-24T05:27:56.000Z</published>
+    <updated>2019-07-24T05:48:02.703Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="java的特性"><a href="#java的特性" class="headerlink" title="java的特性"></a>java的特性</h5><ul><li>java是一个在VM虚拟机上运行的程序，因此具有很强的可移植性</li><li>java是强类型的语言，因此它是健壮的</li><li>java经过多年的发展，已经成为web开发的主要利器<h5 id="java的基本数据类型"><a href="#java的基本数据类型" class="headerlink" title="java的基本数据类型"></a>java的基本数据类型</h5>byte  1个字节<br>short 2个字节<br>int     4个字节<br>long  8个字节<br>char  1个字节（根据编码规则）<br>float  4个字节<br>double 8个字节<br>boolean 1个字节</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;java的特性&quot;&gt;&lt;a href=&quot;#java的特性&quot; class=&quot;headerlink&quot; title=&quot;java的特性&quot;&gt;&lt;/a&gt;java的特性&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;java是一个在VM虚拟机上运行的程序，因此具有很强的可移植性&lt;/li&gt;
+&lt;li&gt;jav
+      
+    
+    </summary>
+    
+      <category term="javaSE" scheme="http://liuyuhang.top/categories/javaSE/"/>
+    
+    
+      <category term="java" scheme="http://liuyuhang.top/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>text</title>
