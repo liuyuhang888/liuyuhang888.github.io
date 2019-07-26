@@ -18,8 +18,8 @@
   
   <entry>
     <title>java基础-集合框架</title>
-    <link href="http://www.liuyuhang.top/2019/07/26/java%E5%9F%BA%E7%A1%80-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/"/>
-    <id>http://www.liuyuhang.top/2019/07/26/java基础-集合框架/</id>
+    <link href="http://www.liuyuhang.top/2019/07/26/java%E5%9F%BA%E7%A1%80-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/java%E5%9F%BA%E7%A1%80-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/"/>
+    <id>http://www.liuyuhang.top/2019/07/26/java基础-集合框架/java基础-集合框架/</id>
     <published>2019-07-26T11:03:06.000Z</published>
     <updated>2019-07-26T11:03:06.938Z</updated>
     
@@ -27,13 +27,15 @@
     
     </summary>
     
+      <category term="java基础-集合框架" scheme="http://www.liuyuhang.top/categories/java%E5%9F%BA%E7%A1%80-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/"/>
+    
     
   </entry>
   
   <entry>
     <title>java基础-面向对象</title>
-    <link href="http://www.liuyuhang.top/2019/07/26/java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    <id>http://www.liuyuhang.top/2019/07/26/java基础-面向对象/</id>
+    <link href="http://www.liuyuhang.top/2019/07/26/java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    <id>http://www.liuyuhang.top/2019/07/26/java基础-面向对象/java基础-面向对象/</id>
     <published>2019-07-26T06:04:21.000Z</published>
     <updated>2019-07-26T06:29:25.426Z</updated>
     
@@ -59,8 +61,8 @@
   
   <entry>
     <title>java基础</title>
-    <link href="http://www.liuyuhang.top/2019/07/24/java%E5%9F%BA%E7%A1%80/"/>
-    <id>http://www.liuyuhang.top/2019/07/24/java基础/</id>
+    <link href="http://www.liuyuhang.top/2019/07/24/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80/"/>
+    <id>http://www.liuyuhang.top/2019/07/24/java基础/java基础/</id>
     <published>2019-07-24T05:27:56.000Z</published>
     <updated>2019-07-26T06:03:30.342Z</updated>
     
@@ -87,8 +89,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://www.liuyuhang.top/2019/07/23/hello-world/"/>
-    <id>http://www.liuyuhang.top/2019/07/23/hello-world/</id>
+    <link href="http://www.liuyuhang.top/2019/07/23/hello-world/hello-world/"/>
+    <id>http://www.liuyuhang.top/2019/07/23/hello-world/hello-world/</id>
     <published>2019-07-23T11:29:15.608Z</published>
     <updated>2019-07-23T18:46:59.942Z</updated>
     
