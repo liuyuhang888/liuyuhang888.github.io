@@ -2102,7 +2102,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2f0bff;
+  background: #f09985;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2641,6 +2641,36 @@ img:hover {
 .site-uv::after {
   content: "|";
   padding-left: 10px;
+}
+.heart {
+  width: 10px;
+  height: 10px;
+  position: fixed;
+  background: #f00;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+}
+.heart:after,
+.heart:before {
+  content: '';
+  width: inherit;
+  height: inherit;
+  background: inherit;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  position: fixed;
+}
+.heart:after {
+  top: -5px;
+}
+.heart:before {
+  left: -5px;
 }
 .page-archive .archive-page-counter {
   position: relative;
