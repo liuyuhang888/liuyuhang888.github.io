@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[java基础-集合框架]]></title>
+    <title><![CDATA[java基础-集合框架(1)]]></title>
     <url>%2F2019%2F07%2F26%2Fjava%E5%9F%BA%E7%A1%80-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%2Fjava%E5%9F%BA%E7%A1%80-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[集合简介java中集合是开发中必不可少的常用利器，而在很多面试过程中，集合框架的内部实现原理也是面试中的重点。我们先看一下集合框架的框架结构图，熟悉一下基本的脉络。下面这张张图是我从网上博客摘取的，在此谢谢你精心的绘制。说明一下颜色含义：黄色：代表接口 绿色：代表抽象接口 蓝色：代表实现类 java中集合框架的总图这是两个集合框架接口的总体图分为两个集合接口，分别是Collection接口，和map接口，collection集合是单列集合，而map集合是双列集合，下面我们将详细的从简单的功能功能学习到它的底层实现原理的探索。 Collection集合接口说起存储数据，我们第一个想到的便是使用变量，数组，但是数组有一定的局限性，它一被创建下来，大小就是固定的了，而集合可以根据需要，自动进行增长。数组只能存储固定的一种类型，而集合却可以存储任意类型。种种的优点让我们选择了集合。 集合框架的出现集合框架在jdk1.1时，只有vector一种集合 1.5后出现了集合框架。 集合的实现接口以及子实现类集合的顶层接口：Collection&lt;E&gt;下面主要的三个接口分别是list set Queue list列表是有序，有下标的，可重复的 除linkhashset之外 set集合是无序的，没有下标，不可重复list的主要实现类是：ArrayList LinkedList vector ArrayList的底层是通过数组实现的LinkedList底层是通过链表实现的vector的底层也是通过数组实现 其中和ArrayList相比 线程的安全性不同，vector是线程安全的,在vector的大多数方法都使用synchronized关键字修饰，arrayList是线程不安全的（可以通过Collections.synchronizedList（）实现线程安全） 性能上的差别，由于vector的方法都有同步锁，在方法执行时需要加锁、解锁，所以在执行过程中效率会低于ArrayList，另外，性能上的差别还体现在底层的Object数组上。 默认都是创建容量为10的数组,但ArrayList自动扩容为原来的1.5倍，vector则扩容为原来的两倍123456789101112131415161718192021//扩容，传入最小容量，跟 ArrayList.grow(int) 很相似，只是扩大量不同 private void grow(int minCapacity) &#123; int oldCapacity = elementData.length; //如果增长量 capacityIncrement 不大于 0 ，就扩容 2 倍 int newCapacity = oldCapacity + ((capacityIncrement &gt; 0) ? capacityIncrement : oldCapacity); if (newCapacity - minCapacity &lt; 0) newCapacity = minCapacity; if (newCapacity - MAX_ARRAY_SIZE &gt; 0) newCapacity = hugeCapacity(minCapacity); // elementData = Arrays.copyOf(elementData, newCapacity);&#125;private static int hugeCapacity(int minCapacity) &#123; if (minCapacity &lt; 0) // overflow throw new OutOfMemoryError(); return (minCapacity &gt; MAX_ARRAY_SIZE) ? Integer.MAX_VALUE : MAX_ARRAY_SIZE;&#125; 扩容操作在添加元素时触发。]]></content>
       <categories>
-        <category>java基础-集合框架</category>
+        <category>javaSE</category>
       </categories>
+      <tags>
+        <tag>javaSE</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[java基础-面向对象]]></title>
