@@ -107,13 +107,13 @@
 <meta property="og:site_name" content="刘宇航的博客">
 <meta property="og:description" content="集合简介java中集合是开发中必不可少的常用利器，而在很多面试过程中，集合框架的内部实现原理也是面试中的重点。我们先看一下集合框架的框架结构图，熟悉一下基本的脉络。下面这张张图是我从网上博客摘取的，在此谢谢你精心的绘制。说明一下颜色含义：黄色：代表接口 绿色：代表抽象接口  蓝色：代表实现类 java中集合框架的总图这是两个集合框架接口的总体图分为两个集合接口，分别是Collection接口，和m">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.liuyuhang.top/2019/07/26/java基础-集合框架/java%E5%9F%BA%E7%A1%80-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/collection.png">
-<meta property="og:image" content="http://www.liuyuhang.top/2019/07/26/java基础-集合框架/java%E5%9F%BA%E7%A1%80-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/map.png">
-<meta property="og:updated_time" content="2019-07-27T05:54:53.118Z">
+<meta property="og:image" content="http://www.liuyuhang.top/2019/07/26/java基础-集合框架/collection.png">
+<meta property="og:image" content="http://www.liuyuhang.top/2019/07/26/java基础-集合框架/map.png">
+<meta property="og:updated_time" content="2019-07-27T06:00:00.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基础-集合框架(1)">
 <meta name="twitter:description" content="集合简介java中集合是开发中必不可少的常用利器，而在很多面试过程中，集合框架的内部实现原理也是面试中的重点。我们先看一下集合框架的框架结构图，熟悉一下基本的脉络。下面这张张图是我从网上博客摘取的，在此谢谢你精心的绘制。说明一下颜色含义：黄色：代表接口 绿色：代表抽象接口  蓝色：代表实现类 java中集合框架的总图这是两个集合框架接口的总体图分为两个集合接口，分别是Collection接口，和m">
-<meta name="twitter:image" content="http://www.liuyuhang.top/2019/07/26/java基础-集合框架/java%E5%9F%BA%E7%A1%80-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/collection.png">
+<meta name="twitter:image" content="http://www.liuyuhang.top/2019/07/26/java基础-集合框架/collection.png">
 
 
 
@@ -470,7 +470,7 @@
 
       
         <h4 id="集合简介"><a href="#集合简介" class="headerlink" title="集合简介"></a>集合简介</h4><p>java中集合是开发中必不可少的常用利器，而在很多面试过程中，集合框架的内部实现原理也是面试中的重点。我们先看一下集合框架的框架结构图，熟悉一下基本的脉络。下面这张张图是我从网上博客摘取的，在此谢谢你精心的绘制。说明一下颜色含义：<strong>黄色</strong>：代表<strong>接口</strong> <strong>绿色</strong>：代表<strong>抽象接口</strong>  蓝色：代表<strong>实现类</strong></p>
-<h4 id="java中集合框架的总图"><a href="#java中集合框架的总图" class="headerlink" title="java中集合框架的总图"></a>java中集合框架的总图</h4><p><img src="java%E5%9F%BA%E7%A1%80-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/collection.png" alt="collection"><br><img src="java%E5%9F%BA%E7%A1%80-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/map.png" alt="map"><br>这是两个集合框架接口的总体图分为两个集合接口，分别是Collection接口，和map接口，collection集合是单列集合，而map集合是双列集合，下面我们将详细的从简单的功能功能学习到它的底层实现原理的探索。</p>
+<h4 id="java中集合框架的总图"><a href="#java中集合框架的总图" class="headerlink" title="java中集合框架的总图"></a>java中集合框架的总图</h4><p><img src="collection.png" alt="collection"><br><img src="map.png" alt="map"><br>这是两个集合框架接口的总体图分为两个集合接口，分别是Collection接口，和map接口，collection集合是单列集合，而map集合是双列集合，下面我们将详细的从简单的功能功能学习到它的底层实现原理的探索。</p>
 <h4 id="Collection集合接口"><a href="#Collection集合接口" class="headerlink" title="Collection集合接口"></a>Collection集合接口</h4><p>说起存储数据，我们第一个想到的便是使用变量，数组，但是数组有一定的局限性，它一被创建下来，大小就是固定的了，而集合可以根据需要，自动进行增长。数组只能存储固定的一种类型，而集合却可以存储任意类型。种种的优点让我们选择了集合。</p>
 <h4 id="集合框架的出现"><a href="#集合框架的出现" class="headerlink" title="集合框架的出现"></a>集合框架的出现</h4><p>集合框架在jdk1.1时，只有vector一种集合 1.5后出现了集合框架。</p>
 <h4 id="集合的实现接口以及子实现类"><a href="#集合的实现接口以及子实现类" class="headerlink" title="集合的实现接口以及子实现类"></a>集合的实现接口以及子实现类</h4><p>集合的顶层接口：Collection&lt;E&gt;<br>下面主要的三个接口分别是<br>list           set           Queue</p>
@@ -505,7 +505,7 @@
   <p><span>本文标题:</span><a href="/2019/07/26/java基础-集合框架/">java基础-集合框架(1)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 刘宇航 的个人博客">刘宇航</a></p>
   <p><span>发布时间:</span>2019年07月26日 - 19:07</p>
-  <p><span>最后更新:</span>2019年07月27日 - 13:07</p>
+  <p><span>最后更新:</span>2019年07月27日 - 14:07</p>
   <p><span>原始链接:</span><a href="/2019/07/26/java基础-集合框架/" title="java基础-集合框架(1)">http://www.liuyuhang.top/2019/07/26/java基础-集合框架/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.liuyuhang.top/2019/07/26/java基础-集合框架/" aria-label="复制成功！"></i></span>
   </p>
