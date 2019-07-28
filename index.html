@@ -426,7 +426,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5.3k
+                  5.5k
                 </span>
               
 
@@ -442,7 +442,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  25
+                  26
                 </span>
               
             </div>
@@ -465,8 +465,7 @@
       
         
           
-          map集合HashMap简介
-HashMap 是一个散列表，它存储的内容是键值对(key-value)映射。HashMap 继承于AbstractMap，实现了Map、Cloneable、java.io.Serializable接口。HashMap 的实现不是同步的，这意味着它不是线程安全的。它的key、value都可以为null。此外，HashMap中的映射不是有序的。HashMap 的实例有两个参数影响其性能：“初始容量” 和 “加载因子”。容量 是哈希表中桶的数量，初始容量 只是哈希表在创建时的容量。加载因子 是哈希表在其容量自动增加之前可以达到多满的一种尺度。当哈希表中的条目数超出了加载因子与当前容量的乘积时，则要对该哈希表进行 rehash 操作（即重建内部数据结构），从而哈希表将
+          map集合HashMap简介不同版本的 JDK 实现 HashMap 的原理有所不同：JDK 1.6, JDK 1.7 HashMap 采用位桶 + 链表实现。JDK 1.8 HashMap 采用位桶 + 链表 + 红黑树实现。（当链表长度超过阈值 “8” 时，将链表转换为红黑树）我们先介绍位桶 + 链表这一种形式。简单说明HashMap 的每一个元素，都是链表的一个节点（entry）。新增一个元素时，会先计算 key 的 hash 值，找到存入数组的位置。如果该位置已经有节点（链表头），则存入该节点的最后一个位置（链表尾）。所以 HashMap 就是一个数组（bucket），数组上每一个元素都是一个节点（节点和所有下一个节点组成一个链表）或者为空，显然同一个链表上的节点 hash 值都一样
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1434,7 +1433,7 @@ Generate static files1$ hexo generate
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">10.4k</span> 字
+      博客全站共： <span class="post-count">10.6k</span> 字
     </span>
 </div>
 

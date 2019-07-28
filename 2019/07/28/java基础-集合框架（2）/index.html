@@ -99,20 +99,21 @@
 
 
 
-<meta name="description" content="map集合HashMap简介 HashMap 是一个散列表，它存储的内容是键值对(key-value)映射。HashMap 继承于AbstractMap，实现了Map、Cloneable、java.io.Serializable接口。HashMap 的实现不是同步的，这意味着它不是线程安全的。它的key、value都可以为null。此外，HashMap中的映射不是有序的。HashMap 的实例有两">
+<meta name="description" content="map集合HashMap简介不同版本的 JDK 实现 HashMap 的原理有所不同：JDK 1.6, JDK 1.7 HashMap 采用位桶 + 链表实现。JDK 1.8 HashMap 采用位桶 + 链表 + 红黑树实现。（当链表长度超过阈值 “8” 时，将链表转换为红黑树）我们先介绍位桶 + 链表这一种形式。简单说明HashMap 的每一个元素，都是链表的一个节点（entry）。新增一个元">
 <meta name="keywords" content="javaSE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java基础-集合框架（2）">
 <meta property="og:url" content="http://www.liuyuhang.top/2019/07/28/java基础-集合框架（2）/index.html">
 <meta property="og:site_name" content="刘宇航的博客">
-<meta property="og:description" content="map集合HashMap简介 HashMap 是一个散列表，它存储的内容是键值对(key-value)映射。HashMap 继承于AbstractMap，实现了Map、Cloneable、java.io.Serializable接口。HashMap 的实现不是同步的，这意味着它不是线程安全的。它的key、value都可以为null。此外，HashMap中的映射不是有序的。HashMap 的实例有两">
+<meta property="og:description" content="map集合HashMap简介不同版本的 JDK 实现 HashMap 的原理有所不同：JDK 1.6, JDK 1.7 HashMap 采用位桶 + 链表实现。JDK 1.8 HashMap 采用位桶 + 链表 + 红黑树实现。（当链表长度超过阈值 “8” 时，将链表转换为红黑树）我们先介绍位桶 + 链表这一种形式。简单说明HashMap 的每一个元素，都是链表的一个节点（entry）。新增一个元">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.liuyuhang.top/2019/07/28/java基础-集合框架（2）/mapentry.png">
 <meta property="og:image" content="http://www.liuyuhang.top/2019/07/28/java基础-集合框架（2）/map.jpg">
-<meta property="og:updated_time" content="2019-07-28T08:59:09.416Z">
+<meta property="og:updated_time" content="2019-07-28T09:02:15.178Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基础-集合框架（2）">
-<meta name="twitter:description" content="map集合HashMap简介 HashMap 是一个散列表，它存储的内容是键值对(key-value)映射。HashMap 继承于AbstractMap，实现了Map、Cloneable、java.io.Serializable接口。HashMap 的实现不是同步的，这意味着它不是线程安全的。它的key、value都可以为null。此外，HashMap中的映射不是有序的。HashMap 的实例有两">
-<meta name="twitter:image" content="http://www.liuyuhang.top/2019/07/28/java基础-集合框架（2）/map.jpg">
+<meta name="twitter:description" content="map集合HashMap简介不同版本的 JDK 实现 HashMap 的原理有所不同：JDK 1.6, JDK 1.7 HashMap 采用位桶 + 链表实现。JDK 1.8 HashMap 采用位桶 + 链表 + 红黑树实现。（当链表长度超过阈值 “8” 时，将链表转换为红黑树）我们先介绍位桶 + 链表这一种形式。简单说明HashMap 的每一个元素，都是链表的一个节点（entry）。新增一个元">
+<meta name="twitter:image" content="http://www.liuyuhang.top/2019/07/28/java基础-集合框架（2）/mapentry.png">
 
 
 
@@ -431,7 +432,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5.3k
+                  5.5k
                 </span>
               
 
@@ -447,7 +448,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  25
+                  26
                 </span>
               
             </div>
@@ -468,8 +469,7 @@
       
 
       
-        <h5 id="map集合"><a href="#map集合" class="headerlink" title="map集合"></a>map集合</h5><p>HashMap简介</p>
-<p>HashMap 是一个散列表，它存储的内容是键值对(key-value)映射。<br>HashMap 继承于AbstractMap，实现了Map、Cloneable、java.io.Serializable接口。<br>HashMap 的实现不是同步的，这意味着它不是线程安全的。它的key、value都可以为null。此外，HashMap中的映射不是有序的。<br>HashMap 的实例有两个参数影响其性能：“初始容量” 和 “加载因子”。容量 是哈希表中桶的数量，初始容量 只是哈希表在创建时的容量。加载因子 是哈希表在其容量自动增加之前可以达到多满的一种尺度。当哈希表中的条目数超出了加载因子与当前容量的乘积时，则要对该哈希表进行 rehash 操作（即重建内部数据结构），从而哈希表将具有大约两倍的桶数。<br>通常，默认加载因子是 0.75, 这是在时间和空间成本上寻求一种折衷。加载因子过高虽然减少了空间开销，但同时也增加了查询成本（在大多数 HashMap 类的操作中，包括 get 和 put 操作，都反映了这一点）。在设置初始容量时应该考虑到映射中所需的条目数及其加载因子，以便最大限度地减少 rehash 操作次数。如果初始容量大于最大条目数除以加载因子，则不会发生 rehash 操作。</p>
+        <h5 id="map集合"><a href="#map集合" class="headerlink" title="map集合"></a>map集合</h5><p>HashMap简介<br>不同版本的 JDK 实现 HashMap 的原理有所不同：<br>JDK 1.6, JDK 1.7 HashMap 采用位桶 + 链表实现。<br>JDK 1.8 HashMap 采用位桶 + 链表 + 红黑树实现。（当链表长度超过阈值 “8” 时，将链表转换为红黑树）<br>我们先介绍位桶 + 链表这一种形式。<br>简单说明<br>HashMap 的每一个元素，都是链表的一个节点（entry）。<br>新增一个元素时，会先计算 key 的 hash 值，找到存入数组的位置。<br>如果该位置已经有节点（链表头），则存入该节点的最后一个位置（链表尾）。<br>所以 HashMap 就是一个数组（bucket），数组上每一个元素都是一个节点（节点和所有下一个节点组成一个链表）或者为空，显然同一个链表上的节点 hash 值都一样。<br><img src="mapentry.png" alt="mapentry"><br>HashMap 是一个散列表，它存储的内容是键值对(key-value)映射。<br>HashMap 继承于AbstractMap，实现了Map、Cloneable、java.io.Serializable接口。<br>HashMap 的实现不是同步的，这意味着它不是线程安全的。它的key、value都可以为null。此外，HashMap中的映射不是有序的。<br>HashMap 的实例有两个参数影响其性能：“初始容量” 和 “加载因子”。容量 是哈希表中桶的数量，初始容量 只是哈希表在创建时的容量。加载因子 是哈希表在其容量自动增加之前可以达到多满的一种尺度。当哈希表中的条目数超出了加载因子与当前容量的乘积时，则要对该哈希表进行 rehash 操作（即重建内部数据结构），从而哈希表将具有大约两倍的桶数。<br>通常，默认加载因子是 0.75, 这是在时间和空间成本上寻求一种折衷。加载因子过高虽然减少了空间开销，但同时也增加了查询成本（在大多数 HashMap 类的操作中，包括 get 和 put 操作，都反映了这一点）。在设置初始容量时应该考虑到映射中所需的条目数及其加载因子，以便最大限度地减少 rehash 操作次数。如果初始容量大于最大条目数除以加载因子，则不会发生 rehash 操作。</p>
 <h4 id="HashMap和map的关系"><a href="#HashMap和map的关系" class="headerlink" title="HashMap和map的关系"></a>HashMap和map的关系</h4><p><img src="map.jpg" alt="map"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 默认构造函数。</span></span><br><span class="line">HashMap()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 指定“容量大小”的构造函数</span></span><br><span class="line">HashMap(<span class="keyword">int</span> capacity)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 指定“容量大小”和“加载因子”的构造函数</span></span><br><span class="line">HashMap(<span class="keyword">int</span> capacity, <span class="keyword">float</span> loadFactor)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 包含“子Map”的构造函数</span></span><br><span class="line">HashMap(Map&lt;? extends K, ? extends V&gt; map)</span><br></pre></td></tr></table></figure>
 
@@ -510,7 +510,7 @@
   <p><span>本文标题:</span><a href="/2019/07/28/java基础-集合框架（2）/">java基础-集合框架（2）</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 刘宇航 的个人博客">刘宇航</a></p>
   <p><span>发布时间:</span>2019年07月28日 - 13:07</p>
-  <p><span>最后更新:</span>2019年07月28日 - 16:07</p>
+  <p><span>最后更新:</span>2019年07月28日 - 17:07</p>
   <p><span>原始链接:</span><a href="/2019/07/28/java基础-集合框架（2）/" title="java基础-集合框架（2）">http://www.liuyuhang.top/2019/07/28/java基础-集合框架（2）/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.liuyuhang.top/2019/07/28/java基础-集合框架（2）/" aria-label="复制成功！"></i></span>
   </p>
@@ -833,7 +833,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">10.4k</span> 字
+      博客全站共： <span class="post-count">10.6k</span> 字
     </span>
 </div>
 
