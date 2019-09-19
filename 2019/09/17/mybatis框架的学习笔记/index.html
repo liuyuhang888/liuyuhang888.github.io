@@ -108,7 +108,7 @@
 <meta property="og:description" content="简介MyBatis是一个Java持久化框架，它通过XML描述符或注解把对象与存储过程或SQL语句关联起来。MyBatis是在Apache许可证 2.0下分发的自由软件，是iBATIS 3.0的分支版本。其维护团队也包含iBATIS的初创成员 —–维基百科 在曾经的开发学习中，我们多次要自己频繁的写JDBC代码获取连接，或者使用连接池来获取数据源。而mybatis为我们提供了一体化的解决方案，使我们">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.liuyuhang.top/2019/09/17/mybatis框架的学习笔记/mybatis%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/mybatis_1-1.png">
-<meta property="og:updated_time" content="2019-09-17T17:14:48.798Z">
+<meta property="og:updated_time" content="2019-09-19T08:00:26.841Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mybatis框架的学习笔记">
 <meta name="twitter:description" content="简介MyBatis是一个Java持久化框架，它通过XML描述符或注解把对象与存储过程或SQL语句关联起来。MyBatis是在Apache许可证 2.0下分发的自由软件，是iBATIS 3.0的分支版本。其维护团队也包含iBATIS的初创成员 —–维基百科 在曾经的开发学习中，我们多次要自己频繁的写JDBC代码获取连接，或者使用连接池来获取数据源。而mybatis为我们提供了一体化的解决方案，使我们">
@@ -431,7 +431,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.5k
+                  1.9k
                 </span>
               
 
@@ -447,7 +447,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  8
                 </span>
               
             </div>
@@ -528,12 +528,12 @@
 <td align="center">用来描述从数据库结果集中来加载对象</td>
 <td align="center">提供映射规则，在Bean对中有映射关系时或数据库名与列名不同时常用</td>
 </tr>
-<tr>
-<td align="center">…未完待续</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
 </tbody></table>
+<p>在上列元素中，还有一些常用的属性<br>|属性名称|描述|<br>| :-: | :-: |<br>|id|它和Mapper的命名空间组合起来使用，是唯一的标识符,通常写方法名|<br>|parameterType|表示传入sql语句的参数类型的全限定名或别名。它是可选类型,大部分情况mybatis能判断传入的类型|<br>|resultType|sql语句返回的类型，全限定类名或别名，如果是集合类型，返回的是集合元素，返回时可使用resultMap|<br>|resultMap|配合resultMap元素使用，填写对应的resultMap的Id|<br>|flushCache|用于设置在调用sql语句后是否要求mybatis清空之前查询的本地缓存和二级缓存，默认为false|<br>|useCache|启动二级缓存开关，默认值为True,表示将查询的结果存入二级缓存中|<br>|timeout|用于设置超时参数，超时将抛出异常|<br>|fetchSize|获取记录总条数设定|</p>
+<h3 id="多参数查询"><a href="#多参数查询" class="headerlink" title="多参数查询"></a>多参数查询</h3><pre><code>1.如果查询时需要多个参数，在mybatis允许参数类型为map，使用时直接使用map的key作为标识符即可。
+2.javabean也可作为参数，使用时直接使用对应属性即可。</code></pre><h3 id="定义主键"><a href="#定义主键" class="headerlink" title="定义主键"></a>定义主键</h3><p>在insert元素中加入selectKey元素，配置order属性来配置何时执行，执行后再执行insert语句，用于提取创建主键id后插入数据库，或插入后查询总记录条数。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"saveUser"</span> <span class="attr">parameterType</span>=<span class="string">"com.liuyuhang.domain.User"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--配置插入后获取插入数据的id--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">selectKey</span> <span class="attr">keyProperty</span>=<span class="string">"id"</span> <span class="attr">keyColumn</span>=<span class="string">"id"</span> <span class="attr">resultType</span>=<span class="string">"int"</span> <span class="attr">order</span>=<span class="string">"AFTER"</span>&gt;</span></span><br><span class="line">            select last_insert_id();</span><br><span class="line">       <span class="tag">&lt;/<span class="name">selectKey</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -552,7 +552,7 @@
   <p><span>本文标题:</span><a href="/2019/09/17/mybatis框架的学习笔记/">mybatis框架的学习笔记</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 刘宇航 的个人博客">刘宇航</a></p>
   <p><span>发布时间:</span>2019年09月17日 - 23:09</p>
-  <p><span>最后更新:</span>2019年09月18日 - 01:09</p>
+  <p><span>最后更新:</span>2019年09月19日 - 16:09</p>
   <p><span>原始链接:</span><a href="/2019/09/17/mybatis框架的学习笔记/" title="mybatis框架的学习笔记">http://www.liuyuhang.top/2019/09/17/mybatis框架的学习笔记/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.liuyuhang.top/2019/09/17/mybatis框架的学习笔记/" aria-label="复制成功！"></i></span>
   </p>
@@ -636,6 +636,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/09/19/什么是EJB/" rel="prev" title="什么是EJB">
+                什么是EJB <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -718,7 +722,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -740,7 +744,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -830,7 +834,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与hebernate对比"><span class="nav-number">2.</span> <span class="nav-text">与hebernate对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用基本流程"><span class="nav-number">3.</span> <span class="nav-text">使用基本流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis基于XML的配置"><span class="nav-number">4.</span> <span class="nav-text">mybatis基于XML的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#主配置文件"><span class="nav-number">4.0.1.</span> <span class="nav-text">主配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#映射配置文件"><span class="nav-number">4.0.2.</span> <span class="nav-text">映射配置文件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mybatis的核心配置"><span class="nav-number">4.1.</span> <span class="nav-text">mybatis的核心配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mybatis的映射配置"><span class="nav-number">4.2.</span> <span class="nav-text">mybatis的映射配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与hebernate对比"><span class="nav-number">2.</span> <span class="nav-text">与hebernate对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用基本流程"><span class="nav-number">3.</span> <span class="nav-text">使用基本流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis基于XML的配置"><span class="nav-number">4.</span> <span class="nav-text">mybatis基于XML的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#主配置文件"><span class="nav-number">4.0.1.</span> <span class="nav-text">主配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#映射配置文件"><span class="nav-number">4.0.2.</span> <span class="nav-text">映射配置文件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mybatis的核心配置"><span class="nav-number">4.1.</span> <span class="nav-text">mybatis的核心配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mybatis的映射配置"><span class="nav-number">4.2.</span> <span class="nav-text">mybatis的映射配置</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#多参数查询"><span class="nav-number">5.</span> <span class="nav-text">多参数查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义主键"><span class="nav-number">6.</span> <span class="nav-text">定义主键</span></a></li></div>
             
 
           </div>
@@ -875,7 +879,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">24.1k</span> 字
+      博客全站共： <span class="post-count">28.1k</span> 字
     </span>
 </div>
 
