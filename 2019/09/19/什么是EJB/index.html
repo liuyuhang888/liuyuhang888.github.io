@@ -111,9 +111,9 @@
 <meta property="og:image" content="http://www.liuyuhang.top/2019/09/19/什么是EJB/%E4%BB%80%E4%B9%88%E6%98%AFEJB/2.jpg">
 <meta property="og:image" content="http://www.liuyuhang.top/2019/09/19/什么是EJB/%E4%BB%80%E4%B9%88%E6%98%AFEJB/3.jpg">
 <meta property="og:image" content="http://www.liuyuhang.top/2019/09/19/什么是EJB/%E4%BB%80%E4%B9%88%E6%98%AFEJB/4.jpg">
-<meta property="og:image" content="http://www.liuyuhang.top/2019/09/19/什么是EJB/%E4%BB%80%E4%B9%88%E6%98%AFEJB/6.jpg">
+<meta property="og:image" content="http://www.liuyuhang.top/2019/09/19/什么是EJB/6.jpg">
 <meta property="og:image" content="http://www.liuyuhang.top/2019/09/19/什么是EJB/%E4%BB%80%E4%B9%88%E6%98%AFEJB/7.jpg">
-<meta property="og:updated_time" content="2019-09-19T08:34:56.976Z">
+<meta property="og:updated_time" content="2019-09-19T08:40:10.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="什么是EJB">
 <meta name="twitter:description" content="我们不禁要问，什么是”服务集群”？什么是”企业级开发”？   既然说了EJB 是为了”服务集群”和”企业级开发”，那么，总得说说什么是所谓的”服务集群”和”企业级开发”吧！这个问题其实挺关键的，因为J2EE 中并没有说明白，也没有具体的指标或者事例告诉广大程序员什么时候用EJB 什么时候不用。于是大家都产生一些联想，认为EJB”分布式运算”指得是”负载均衡”提高系统的运行效率。然而，估计很多人都">
@@ -514,7 +514,7 @@
 </ol>
 <p>图2 14所示的这个”服务群集”看似”无懈可击”，其实是它这个图没有画完整，我们来把这个图画完整，再来看看有什么问题没有。</p>
 <p>6.1 瓶颈在数据库端 </p>
-<p>仔细观察之后，发现这种配置是有瓶颈的，如图2 15所示。<br><img src="%E4%BB%80%E4%B9%88%E6%98%AFEJB/6.jpg" alt="enter description here"></p>
+<p>仔细观察之后，发现这种配置是有瓶颈的，如图2 15所示。<br><img src="6.jpg" alt="enter description here"></p>
 <p>我们看看图2 15的结构图，现在如果想实现各个服务器针对同一个数据库的查询，那么，不管你部署多少个功能服务器，都需要针对一个数据库服务器进行查询操作。也就是说，不管你的”计算”有多么”分布”也同样需要从一台服务器中取得数据。虽然，看起来将各个功能模块分布在不同的服务器上从而分担了各个主计算机的CPU 资源，然而，真正的瓶颈并不在这里，而是，数据库服务器那里。数据库服务器都会非常忙的应付各个服务器的查询及操作请求。<br>因此，通过这个结构图使我们了解到了EJB 根本不能完全解决负载的问题，因为，瓶颈并不在功能模块的所在位置，而是在数据库服务器这里。</p>
 <p>6.2 假如分开数据库，数据共享怎么办 </p>
 <p>有的读者一定会想到下面的这个应用结构，如图2 16所示。<br><img src="%E4%BB%80%E4%B9%88%E6%98%AFEJB/7.jpg" alt="enter description here"></p>
